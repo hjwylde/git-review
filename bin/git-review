@@ -3,5 +3,5 @@
 revision=$1
 
 if [ ! -z "$revision" ]; then
-    git log --format=%H -z --reverse "$revision" | xargs -0 -p -n 1 git show -w -C -p --stat
+    git log --format=%H -z --reverse --no-merges --first-parent "$revision" | xargs -0 -p -n 1 git show -w -C -p --stat
 fi
