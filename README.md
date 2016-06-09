@@ -22,7 +22,7 @@ Any commit found in the reference will be piped to `xargs` and give you a prompt
     would like to review the commit.
 
 ```bash
-> git review master...issue/1
+> git review 047fe48...issue/1
 cb182c1 (#1) update CHANGELOG.md
 cfbb485 (#1) update README.md with installation instructions and example usage
 9f34372 (#1) add initial version of git-review
