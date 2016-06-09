@@ -7,7 +7,7 @@ A Git command that enables reviewing a feature commit by commit.
 
 ### Installing
 
-Clone down the repository and add the bin folder to your `PATH` environment variable.
+Clone down the repository and add the `bin/` folder to your `PATH` environment variable.
 
 ```bash
 git clone https://github.com/hjwylde/git-review DESTINATION/
