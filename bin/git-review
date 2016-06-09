@@ -27,8 +27,10 @@ case $# in
         echo_no_revision_range
     ;;
     1)
-        git log --format=oneline --abbrev-commit --no-merges --first-parent "$revision"
-        git log --format=%h -z --reverse --no-merges --first-parent "$revision" | xargs -0 -p -n 1 git show -w -C -p --stat
+        revision_range=$1
+
+        git log --format=oneline --abbrev-commit --no-merges --first-parent "$revision_range"
+        git log --format=%h -z --reverse --no-merges --first-parent "$revision_range" | xargs -0 -p -n 1 git show -w -C -p --stat
     ;;
     *)
         echo_help
