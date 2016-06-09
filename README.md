@@ -29,6 +29,9 @@ Author: Henry J. Wylde <public@hjwylde.com>
 Date:   Thu Jun 9 13:17:14 2016 +1200
 
     (#1) add initial version of git-review
+---
+ bin/git-review | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
 diff --git a/bin/git-review b/bin/git-review
 new file mode 100755
