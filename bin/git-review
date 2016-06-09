@@ -1,0 +1,7 @@
+#!/bin/bash
+
+revision=$1
+
+if [ ! -z "$revision" ]; then
+    git log --format=%H -z --reverse "$revision" | xargs -0 -p -n 1 git show -w
+fi
