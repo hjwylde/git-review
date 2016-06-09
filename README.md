@@ -23,8 +23,10 @@ Any commit found in the reference will be piped to `xargs` and give you a prompt
 
 ```bash
 > git review master...issue/1
+cb182c1 (#1) update CHANGELOG.md
+cfbb485 (#1) update README.md with installation instructions and example usage
 9f34372 (#1) add initial version of git-review
-git show -w 9f34372?...y
+git show -w -C -p --stat 9f34372?...y
 commit 9f34372e3756c19838027cc0a16e8cd5f96a0a93
 Author: Henry J. Wylde <public@hjwylde.com>
 Date:   Thu Jun 9 13:17:14 2016 +1200
@@ -40,4 +42,6 @@ index 0000000..e3d2e1f
 --- /dev/null
 +++ b/bin/git-review
 ...
+git show -w -C -p --stat cfbb485?...n
+git show -w -C -p --stat cb182c1?...n
 ```
