@@ -1,8 +1,37 @@
-#!/bin/bash
+#!/bin/bash -e
 
-revision=$1
+function echo_help {
+    echo 'usage: git review <revision-range>'
+    echo
+}
 
-if [ ! -z "$revision" ]; then
-    git log --format=oneline --abbrev-commit --no-merges --first-parent "$revision"
-    git log --format=%h -z --reverse --no-merges --first-parent "$revision" | xargs -0 -p -n 1 git show -w -C -p --stat
-fi
+function echo_no_revision_range {
+    echo 'Nothing specified, nothing to review.'
+}
+
+for i in "$@"; do
+    key="$1"
+
+    case $key in
+        -h|--help)
+            echo_help
+            exit 129
+        ;;
+    esac
+done
+
+git rev-parse 1> /dev/null
+
+case $# in
+    0)
+        echo_no_revision_range
+    ;;
+    1)
+        git log --format=oneline --abbrev-commit --no-merges --first-parent "$revision"
+        git log --format=%h -z --reverse --no-merges --first-parent "$revision" | xargs -0 -p -n 1 git show -w -C -p --stat
+    ;;
+    *)
+        echo_help
+        exit 129
+    ;;
+esac
