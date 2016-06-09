@@ -22,8 +22,9 @@ Any commit found in the reference will be piped to `xargs` and give you a prompt
     would like to review the commit.
 
 ```bash
-git review master...issue/1
-git show -w 9f34372e3756c19838027cc0a16e8cd5f96a0a93?...y
+> git review master...issue/1
+9f34372 (#1) add initial version of git-review
+git show -w 9f34372?...y
 commit 9f34372e3756c19838027cc0a16e8cd5f96a0a93
 Author: Henry J. Wylde <public@hjwylde.com>
 Date:   Thu Jun 9 13:17:14 2016 +1200
