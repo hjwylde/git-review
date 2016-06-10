@@ -9,6 +9,40 @@ function echo_no_revision_range {
     echo 'Nothing specified, nothing to review.'
 }
 
+function echo_prompt_help {
+    echo 'y - review this commit'
+    echo 'n - do not review this commit'
+    echo 'q - quit; do not review this commit or any of the remaining ones'
+    echo '? - print help'
+}
+
+function prompt_review {
+    commit_sha=$1
+
+    subject=`git show --format=%s -s $commit_sha`
+
+    while true; do
+        echo -n "Review '$subject' [y,n,q,?]? "
+        read response
+
+        case $response in
+            y)
+                git show -w -C -p --stat $commit_sha
+                return 0
+            ;;
+            n)
+                return 0
+            ;;
+            q)
+                exit 0
+            ;;
+            ?)
+                echo_prompt_help
+            ;;
+        esac
+    done
+}
+
 for i in "$@"; do
     key="$1"
 
@@ -30,7 +64,11 @@ case $# in
         revision_range=$1
 
         git log --format=oneline --abbrev-commit --no-merges --first-parent "$revision_range"
-        git log --format=%h -z --reverse --no-merges --first-parent "$revision_range" | xargs -0 -p -n 1 git show -w -C -p --stat
+
+        commits=`git log --format=%h --reverse --no-merges --first-parent "$revision_range"`
+        for commit in $commits; do
+            prompt_review $commit
+        done
     ;;
     *)
         echo_help

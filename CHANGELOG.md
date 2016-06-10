@@ -10,6 +10,7 @@
 * Added summary of commits for review before git show. ([#10](https://github.com/hjwylde/git-review/issues/10))
 * Added `-h` option. ([#5](https://github.com/hjwylde/git-review/issues/5))
 * Added error checking for arguments. ([#9](https://github.com/hjwylde/git-review/issues/9))
+* Added better prompt for review. ([#7](https://github.com/hjwylde/git-review/issues/7))
 
 ### v1.0.0.0
 
