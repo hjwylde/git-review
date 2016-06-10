@@ -18,8 +18,8 @@ export $PATH:DESTINATION/bin/
 
 Call `git review` and pass in any commit reference that `git log` supports, e.g.,
     `master...issue/1`.
-Any commit found in the reference will be piped to `xargs` and give you a prompt asking whether you
-    would like to review the commit.
+You'll be given a prompt for any commit found in the reference asking whether you would like to
+    review the commit.
 
 ```bash
 > git review 047fe48...issue/1
