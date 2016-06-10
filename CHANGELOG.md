@@ -2,6 +2,8 @@
 
 ### Upcoming
 
+### v1.0.1.0
+
 *Minor*
 
 * Added `--stat` flag to `git show`. ([#2](https://github.com/hjwylde/git-review/issues/2))
