@@ -10,10 +10,13 @@ function echo_no_revision_range {
 }
 
 function echo_prompt_help {
+    tput setaf 1
+    tput bold
     echo 'y - review this commit'
     echo 'n - do not review this commit'
     echo 'q - quit; do not review this commit or any of the remaining ones'
     echo '? - print help'
+    tput sgr0
 }
 
 function prompt_review {
