@@ -2,6 +2,10 @@
 
 ### Upcoming
 
+*Minor*
+
+* Added colours to the in-review help. ([#11](https://github.com/hjwylde/git-review/issues/11))
+
 ### v1.0.1.0
 
 *Minor*
